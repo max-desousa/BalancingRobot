@@ -32,6 +32,12 @@ int MaxForwardSpeed = 106;
 int MaxBackwardSpeed = 76;
 
 
+//====================================
+//====================================
+//====== Main Setup Function =========
+//====================================
+//====================================
+
 
 void setup()
 {
@@ -51,8 +57,8 @@ void setup()
   myIMU.initMPU9250();
   myIMU.initAK8963(myIMU.factoryMagCalibration);
   myIMU.getAres();
-    myIMU.getGres();
-    myIMU.getMres();
+  myIMU.getGres();
+  myIMU.getMres();
 }
 
 void initializeMotorsToStoppedPosition()
@@ -85,13 +91,35 @@ void initializeMotorsToStoppedPosition()
   }
 }
 
+
+//====================================
+//====================================
+//======= Main Loop Function =========
+//====================================
+//====================================
+
+
+
 void loop()
 {
   updateAngleData();
-   
+
+  
   Serial.print("Pitch: ");
-  Serial.println(myIMU.pitch, 2);
+  Serial.println(myIMU.pitch);
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 void updateAngleData()
